@@ -40,11 +40,11 @@ function mostrarDatos(
   }
 }
 
-/*Funcion para que el ordenamiento compare valores*/
+/*Funcion para que la funcion ordenamiento compare valores*/
 function compararValores(edades: number[], altura: number[], i: number) {
   let comparar: number = 0;
   let j: number = i + 1;
-
+  /*El primer filtro es la edad, si son iguales, ordenar segun altura*/
   if (edades[i] === edades[j]) {
     if (altura[i] === altura[j]) {
       comparar = 0;
@@ -52,7 +52,7 @@ function compararValores(edades: number[], altura: number[], i: number) {
       comparar = -1;
     } else {
       comparar = 1;
-    }
+    } /*Si las edades son diferentes, ordenar segun edad*/
   } else if (edades[i] < edades[j]) {
     comparar = -1;
   } else {
@@ -61,6 +61,7 @@ function compararValores(edades: number[], altura: number[], i: number) {
   return comparar;
 }
 
+/*Funcion para intercambiar valores dentro de la funcion ordenamiento*/
 function intercambiarValores(arreglo: number[], i: number) {
   let ordenado: number;
   let b: number = i + 1;
@@ -87,7 +88,9 @@ function ordenamientoPorBurbuja(
 }
 
 /*Llamo a las funciones*/
+console.log("Informacion original:");
 cargarDatos(nombres, edades, altura, dimensionArray);
 mostrarDatos(nombres, edades, altura, dimensionArray);
+console.log("Informacion ordenada:");
 ordenamientoPorBurbuja(nombres, edades, altura, dimensionArray);
 mostrarDatos(nombres, edades, altura, dimensionArray);
